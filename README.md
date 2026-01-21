@@ -91,7 +91,7 @@ El notebook avanza hacia inferencia estadística utilizando **`statsmodels`**:
 
 ---
 
-## � Key Insights: Hallazgos Principales
+##  Key Insights: Hallazgos Principales
 
 ###  Disparidad de Precios por Barrio
 El análisis de regresión múltiple (Log-Lin con variables dummy por barrio) reveló disparidades significativas en las valuaciones inmobiliarias, manteniendo constantes otras variables como la superficie:
