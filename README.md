@@ -98,10 +98,10 @@ El análisis de regresión múltiple (Log-Lin con variables dummy por barrio) re
 *   **Intercepto**: 
     *   La constante del modelo representa el valor base de una unidad en el barrio de referencia (Abasto), a partir de la cual se aplican los premios y descuentos por características ('m2', 'baños', 'ambientes', 'cocheras') y ubicación.
 *   ** El Más Caro: Puerto Madero**:
-    *   Este barrio presentó el coeficiente positivo más alto del modelo (`0.8241`).
-    *   **Interpretación**: Una propiedad en Puerto Madero cuesta aproximadamente un **128% más** que el barrio Abasto (ajustado por otras variables), *ceteris paribus*. Es, por lejos, el outlier más significativo del mercado.
-*   ** Zona Premium**: Barrios como **Palermo Chico** (Coef `0.625`) y **Palermo Nuevo** (Coef `0.550`) también muestran valuaciones muy por encima de la media, consolidándose como submercados de lujo.
-*   ** Barrios Más Accesibles**: En el otro extremo, **Villa Soldati** (Coef `-0.7736`) y **Pompeya** (Coef `-0.7894`) muestran los descuentos más fuertes respecto a la media, con precios ajustados aproximadamente un **50-55% por debajo** del valor de referencia.
+    *   Este barrio presentó el coeficiente positivo más alto del modelo (`0.8067`).
+    *   **Interpretación**: Una propiedad en Puerto Madero cuesta aproximadamente un **124% más** que el barrio Abasto (ajustado por otras variables), *ceteris paribus*. Es, por lejos, el outlier más significativo del mercado.
+*   ** Zona Premium**: Barrios como **Palermo Chico** (Coef `0.5588`) y **Palermo Nuevo** (Coef `0.4414`) también muestran valuaciones muy por encima de la media, consolidándose como submercados de lujo.
+*   ** Barrios Más Accesibles**: En el otro extremo, **Villa Soldati** (Coef `-0.7802`) y **Pompeya** (Coef `-0.9145`) muestran los descuentos más fuertes respecto a la media, con precios ajustados aproximadamente un **55-60% por debajo** del valor de referencia.
 ![Precios Promedio por Barrio](/screens/Precios%20Promedios%20Más%20Caros%20por%20Barrios.png)
 ![Precios Promedio por Barrio](/screens/Precios%20Promedios%20Más%20Baratos%20por%20Barrios.png)
 ![Precios Promedio por Barrio](/screens/Precio%20promedio%20de%20departamentos%20por%20barrio%20en%20CABA.png)
@@ -114,22 +114,22 @@ Dado que la variable dependiente es el logaritmo del precio (`log_precio`), la i
 ```
 
 **Ejemplo: Valor Marginal de una Cochera**
-*   **Coeficiente**: `0.2299`
-*   **Cálculo**: $e^{0.2299} - 1 \approx 0.258$
-*   **Conclusión**: *Ceteris paribus* (manteniendo todo lo demás constante), disponer de una cochera incrementa el valor de la propiedad en un **25.8%** en promedio.
+*   **Coeficiente**: `0.2025`
+*   **Cálculo**: $e^{0.2025} - 1 \approx 0.224$
+*   **Conclusión**: *Ceteris paribus* (manteniendo todo lo demás constante), disponer de una cochera incrementa el valor de la propiedad en un **22.4%** en promedio.
 
 ###  El Impacto de las Características Físicas
 Más allá de la ubicación, las características intrínsecas de la propiedad juegan un rol crucial validado por el modelo:
 *   **Superficie (m²)**: Es el predictor individual más fuerte.
-*   **Baños**: Coeficiente `0.2727`.
-*   **Cocheras**: Coeficiente `0.2299`.
+*   **Baños**: Coeficiente `0.2658`.
+*   **Cocheras**: Coeficiente `0.2025`.
 
 ###  Análisis de Residuos
 Se realizaron pruebas estadísticas para verificar la normalidad de los errores del modelo:
 *   **Diagnóstico**: Los tests **Omnibus** y **Jarque-Bera** arrojaron p-valores de `0.000`, rechazando la hipótesis nula de normalidad perfecta.
-*   **Asimetría (Skewness)**: `-0.165`. Indica una ligera asimetría negativa.
-*   **Curtosis**: `4.348`. Indica una distribución leptocúrtica ("colas pesadas"), señalando la presencia de outliers de precio que el modelo no logra capturar totalmente.
-*   **Validación**: A pesar de la falta de normalidad estricta, el gran tamaño de la muestra ($N=8598$) garantiza la validez asintótica de las inferencias estadísticas, permitiendo confiar en la significancia de los co  eficientes.
+*   **Asimetría (Skewness)**: `-0.063`. Indica una ligerísima asimetría negativa.
+*   **Curtosis**: `4.005`. Indica una distribución leptocúrtica ("colas pesadas"), señalando la presencia de outliers de precio que el modelo no logra capturar totalmente.
+*   **Validación**: A pesar de la falta de normalidad estricta, el gran tamaño de la muestra ($N=37094$) garantiza la validez asintótica de las inferencias estadísticas, permitiendo confiar en la significancia de los co  eficientes.
 ![Residuos vs Valores Ajustados](/screens/Residuos%20vs%20Valores%20Ajustados.png)
 ![Residuos vs Valores Ajustados](/screens/Q-Q%20plot%20y%20distribucion%20de%20residuos.png)
 
@@ -139,7 +139,7 @@ Se realizaron pruebas estadísticas para verificar la normalidad de los errores 
 ![Predichos vs Reales](/screens/Precios%20Reales%20vs%20Precios%20Predichos.png)
 
 ###  Desempeño del Modelo
-*   **Bondad de Ajuste ($R^2$)**: El modelo explica el **79% de la varianza de los precios**. Se destaca que el 21% restante podría atribuirse a variables no capturadas por la fuente de datos (estado de conservación del edificio, luminosidad, antigüedad exacta o disposición frente/contrafrente).
+*   **Bondad de Ajuste ($R^2$)**: El modelo explica el **80.9% de la varianza de los precios** ($R^2 = 0.809$). Se destaca que el 19% restante podría atribuirse a variables no capturadas por la fuente de datos (estado de conservación del edificio, luminosidad, antigüedad exacta o disposición frente/contrafrente).
 *   **Robustez**: Se utilizaron errores estándar robustos (**HC3**) durante el ajuste del modelo OLS. Esto corrige la estimación de la varianza de los coeficientes ante la presencia de heterocedasticidad, asegurando que los p-valores y la significancia estadística reportada para cada barrio sean válidas.
 
 ---
