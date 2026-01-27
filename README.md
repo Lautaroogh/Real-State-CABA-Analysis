@@ -94,11 +94,11 @@ El notebook avanza hacia inferencia estadística utilizando **`statsmodels`**:
 ##  Key Insights: Hallazgos Principales
 
 ###  Disparidad de Precios por Barrio
-    *   **Limpieza de Datos Rigurosa**: Antes de llegar a los insights, el dataset original de **76,000 registros** pasó por una estricta curación, resultando en **37,102 observaciones finales (48.8% del total original)**. El análisis reveló que la mitad de los datos de mercado eran "ruido" o duplicados.
-        *   **Filtro de Precios Nulos (-1,019)**: Eliminación de propiedades sin precio o no numéricas (Residuo: 74,981).
-        *   **Filtro de Superficie (-17)**: Eliminación de datos erróneos de 0 m² (Residuo: 74,964).
-        *   **Outliers (-130)**: Descarte de valores inverosímiles para un departamento estándar (<20k USD, >5000 m², etc) (Residuo: 74,834).
-        *   **Eliminación de Duplicados (-37,732)**: El corte más significativo. Se detectó que el **50% de la base** eran publicaciones repetidas (identificadas por URL única), lo que hubiese sesgado severamente cualquier modelo estadístico.
+*   **Limpieza de Datos Rigurosa**: Antes de llegar a los insights, el dataset original de **76,000 registros** pasó por una estricta curación, resultando en **37,102 observaciones finales (48.8% del total original)**. El análisis reveló que la mitad de los datos de mercado eran "ruido" o duplicados.
+    *   **Filtro de Precios Nulos (-1,019)**: Eliminación de propiedades sin precio o no numéricas (Residuo: 74,981).
+    *   **Filtro de Superficie (-17)**: Eliminación de datos erróneos de 0 m² (Residuo: 74,964).
+    *   **Outliers (-130)**: Descarte de valores inverosímiles para un departamento estándar (<20k USD, >5000 m², etc) (Residuo: 74,834).
+    *   **Eliminación de Duplicados (-37,732)**: El corte más significativo. Se detectó que el **50% de la base** eran publicaciones repetidas (identificadas por URL única), lo que hubiese sesgado severamente cualquier modelo estadístico.
 
 ###  Disparidad de Precios por Barrio
 El análisis de regresión múltiple (Log-Lin con variables dummy por barrio) reveló disparidades significativas en las valuaciones inmobiliarias, manteniendo constantes otras variables como la superficie:
