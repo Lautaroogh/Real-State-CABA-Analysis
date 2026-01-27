@@ -97,11 +97,11 @@ El notebook avanza hacia inferencia estadística utilizando **`statsmodels`**:
 El análisis de regresión múltiple (Log-Lin con variables dummy por barrio) reveló disparidades significativas en las valuaciones inmobiliarias, manteniendo constantes otras variables como la superficie:
 *   **Intercepto**: 
     *   La constante del modelo representa el valor base de una unidad en el barrio de referencia (Abasto), a partir de la cual se aplican los premios y descuentos por características ('m2', 'baños', 'ambientes', 'cocheras') y ubicación.
-*   ** El Más Caro: Puerto Madero**:
+*   **El Más Caro: Puerto Madero**:
     *   Este barrio presentó el coeficiente positivo más alto del modelo (`0.8067`).
     *   **Interpretación**: Una propiedad en Puerto Madero cuesta aproximadamente un **124% más** que el barrio Abasto (ajustado por otras variables), *ceteris paribus*. Es, por lejos, el outlier más significativo del mercado.
-*   ** Zona Premium**: Barrios como **Palermo Chico** (Coef `0.5588`) y **Palermo Nuevo** (Coef `0.4414`) también muestran valuaciones muy por encima de la media, consolidándose como submercados de lujo.
-*   ** Barrios Más Accesibles**: En el otro extremo, **Villa Soldati** (Coef `-0.7802`) y **Pompeya** (Coef `-0.9145`) muestran los descuentos más fuertes respecto a la media, con precios ajustados aproximadamente un **55-60% por debajo** del valor de referencia.
+*   **Zona Premium**: Barrios como **Palermo Chico** (Coef `0.5588`) y **Palermo Nuevo** (Coef `0.4414`) también muestran valuaciones muy por encima de la media, consolidándose como submercados de lujo.
+*   **Barrios Más Accesibles**: En el otro extremo, **Villa Soldati** (Coef `-0.7802`) y **Pompeya** (Coef `-0.9145`) muestran los descuentos más fuertes respecto a la media, con precios ajustados aproximadamente un **55-60% por debajo** del valor de referencia.
 ![Precios Promedio por Barrio](/screens/Precios%20Promedios%20Más%20Caros%20por%20Barrios.png)
 ![Precios Promedio por Barrio](/screens/Precios%20Promedios%20Más%20Baratos%20por%20Barrios.png)
 ![Precios Promedio por Barrio](/screens/Precio%20promedio%20de%20departamentos%20por%20barrio%20en%20CABA.png)
@@ -123,6 +123,7 @@ Más allá de la ubicación, las características intrínsecas de la propiedad j
 *   **Superficie (m²)**: Es el predictor individual más fuerte.
 *   **Baños**: Coeficiente `0.2658`.
 *   **Cocheras**: Coeficiente `0.2025`.
+![Baños y Cocheras](/screens/Baños%20y%20Cocheras.png)
 
 ###  Análisis de Residuos
 Se realizaron pruebas estadísticas para verificar la normalidad de los errores del modelo:
@@ -141,7 +142,7 @@ Se realizaron pruebas estadísticas para verificar la normalidad de los errores 
 ###  Desempeño del Modelo
 *   **Bondad de Ajuste ($R^2$)**: El modelo explica el **80.9% de la varianza de los precios** ($R^2 = 0.809$). Se destaca que el 19% restante podría atribuirse a variables no capturadas por la fuente de datos (estado de conservación del edificio, luminosidad, antigüedad exacta o disposición frente/contrafrente).
 *   **Robustez**: Se utilizaron errores estándar robustos (**HC3**) durante el ajuste del modelo OLS. Esto corrige la estimación de la varianza de los coeficientes ante la presencia de heterocedasticidad, asegurando que los p-valores y la significancia estadística reportada para cada barrio sean válidas.
-
+![OLS Resultados ](/screens/OLS%20Resultados.png)
 ---
 
 ##  Instalación
